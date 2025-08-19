@@ -171,10 +171,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Developer
 
-**Matheus Abrahão**
-- GitHub: [@abrahao-dev](https://github.com/abrahao-dev)
-- LinkedIn: [Your LinkedIn]
-- Portfolio: [Your Portfolio]
+**Matheus Abrahão**  
+- GitHub: [@abrahao-dev](https://github.com/abrahao-dev)  
+- LinkedIn: [linkedin.com/in/matheusabrahao](https://www.linkedin.com/in/matheusabrahao)  
+- Portfolio: [matheusabrahao.com.br](https://www.matheusabrahao.com.br)  
 
 ## 🙏 Acknowledgments
 
