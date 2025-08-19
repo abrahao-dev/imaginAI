@@ -1,113 +1,198 @@
-# ImaginAI
+# ImaginAI 🎨
 
-ImaginAI is a Swift-based application that generates images from text descriptions using the Hugging Face API. This project leverages machine learning models to create unique and imaginative images based on user input.
+A modern iOS application built with SwiftUI that generates AI-powered images from text descriptions using the Hugging Face API. ImaginAI transforms your imagination into visual reality through advanced machine learning models.
 
-## Table of Contents
+![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)
+![iOS](https://img.shields.io/badge/iOS-15.0+-blue.svg)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-3.0+-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## ✨ Features
 
-## Installation
+- **🤖 AI-Powered Image Generation**: Create unique images from text descriptions using the FLUX.1-dev model
+- **📱 Modern SwiftUI Interface**: Clean, intuitive user experience with native iOS design patterns
+- **🖼️ Image History**: Browse and manage previously generated images
+- **💾 Save to Photos**: One-tap save functionality for generated images
+- **⚡ Real-time Generation**: Live progress indicators and status updates
+- **🎯 Detail View**: Full-screen image viewing with tap-to-save functionality
+- **🔄 Smart State Management**: Efficient handling of loading states and error conditions
 
-To get started with ImaginAI, follow these steps:
+## 🛠️ Technical Stack
 
-1. **Clone the repository:**
+- **Framework**: SwiftUI 3.0+
+- **Language**: Swift 5.9
+- **Target**: iOS 15.0+
+- **API**: Hugging Face Inference API
+- **Architecture**: MVVM with async/await patterns
+- **Image Processing**: UIKit integration for image handling
 
-    ```sh
-    git clone https://github.com/abrahao-dev/imaginAI.git
-    cd imaginAI
-    ```
+## 📱 Screenshots
 
-2. **Open the project in Xcode:**
+*[Screenshots would be added here]*
 
-    Open `ImaginAI.xcodeproj` in Xcode.
+## 🚀 Getting Started
 
-3. **Install dependencies:**
+### Prerequisites
 
-    Ensure you have all the necessary dependencies installed. You can use CocoaPods or Swift Package Manager if needed.
+- Xcode 15.0 or later
+- iOS 15.0+ device or simulator
+- Active internet connection for API calls
 
-4. **Build and run the project:**
+### Installation
 
-    Select your target device or simulator and click the "Run" button in Xcode.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/abrahao-dev/imaginAI.git
+   cd imaginAI
+   ```
 
-## Usage
+2. **Open in Xcode**
+   ```bash
+   open ImaginAI.xcodeproj
+   ```
 
-1. **Enter a description:**
+3. **Build and Run**
+   - Select your target device or simulator
+   - Press `Cmd + R` or click the Run button
+   - The app will launch and be ready to generate images
 
-    In the text field, enter a description of the image you want to generate (e.g., "Astronaut riding a horse").
+### API Configuration
 
-2. **Generate the image:**
+The app uses the Hugging Face Inference API with the FLUX.1-dev model. The API key is currently embedded in the code for demonstration purposes. For production use, consider:
 
-    Click the "Gerar Imagem" button to generate the image. The app will call the Hugging Face API and display the generated image.
+- Moving the API key to a secure configuration file
+- Implementing proper key management
+- Adding rate limiting and error handling
 
-3. **View image history:**
+## 🎯 Usage
 
-    The app maintains a history of generated images. You can view and select images from the history to see them in detail.
+1. **Enter Description**: Type a detailed description of the image you want to generate
+   - Example: "A futuristic cityscape with flying cars and neon lights"
+   - Maximum 200 characters for optimal results
 
-## Features
+2. **Generate Image**: Tap "Gerar Imagem" to start the generation process
+   - Generation typically takes 30 seconds to 2 minutes
+   - Progress indicator shows current status
 
-- **Text-to-Image Generation:**
-    Generate images from text descriptions using the Hugging Face API.
+3. **View Results**: The generated image appears with options to:
+   - Save to photo album (tap the image)
+   - View in detail view (tap images in history)
+   - Generate new images (confirmation dialog prevents accidental overwrites)
 
-- **Image History:**
-    View a history of previously generated images.
+4. **Browse History**: Scroll through previously generated images in the horizontal gallery
 
-- **Image Detail View:**
-    Tap on an image in the history to view it in detail.
+## 🏗️ Project Structure
 
-- **Save Images:**
-    Save generated images to your photo album.
+```
+ImaginAI/
+├── ImaginAIApp.swift          # App entry point
+├── ContentView.swift          # Main UI and business logic
+├── ImageGeneratorService.swift # API service layer
+├── Assets.xcassets/          # App icons and colors
+└── Info.plist               # App configuration
+```
 
-## Contributing
+### Key Components
 
-We welcome contributions to ImaginAI! To contribute, follow these steps:
+- **`ContentView`**: Main SwiftUI view with MVVM architecture
+- **`ImageGeneratorService`**: Handles API communication and image processing
+- **`ImageSaver`**: Manages photo album integration
+- **`ImageDetailView`**: Full-screen image viewing component
 
-1. **Fork the repository:**
+## 🔧 Architecture Highlights
 
-    Click the "Fork" button at the top right of the repository page.
+### MVVM Pattern
+- **Model**: Image data and API responses
+- **View**: SwiftUI views with reactive UI updates
+- **ViewModel**: State management in ContentView
 
-2. **Clone your fork:**
+### Async/Await Integration
+- Modern concurrency patterns for API calls
+- Proper error handling and user feedback
+- Background processing with UI updates
 
-    ```sh
-    git clone https://github.com/YOUR_USERNAME/imaginAI.git
-    cd imaginAI
-    ```
+### SwiftUI Best Practices
+- Reactive state management with `@State` properties
+- Proper view composition and reusability
+- Native iOS design patterns and accessibility
 
-3. **Create a new branch:**
+## 🚨 Error Handling
 
-    ```sh
-    git checkout -b feature/your-feature-name
-    ```
+The app implements comprehensive error handling:
 
-4. **Make your changes and commit them:**
+- **Network Errors**: Connection issues and API failures
+- **Input Validation**: Empty descriptions and character limits
+- **Image Processing**: Data conversion and format issues
+- **User Feedback**: Clear error messages and recovery options
 
-    ```sh
-    git add .
-    git commit -m "Add your commit message here"
-    ```
+## 📊 Performance Considerations
 
-5. **Push to your fork:**
+- **Image Caching**: Generated images stored in memory for quick access
+- **API Optimization**: Efficient request handling with proper timeouts
+- **Memory Management**: Automatic cleanup of large image data
+- **UI Responsiveness**: Background processing with loading indicators
 
-    ```sh
-    git push origin feature/your-feature-name
-    ```
+## 🔒 Security Notes
 
-6. **Create a pull request:**
+- API key is currently embedded in source code (demo purposes only)
+- No sensitive data is stored locally
+- Network requests use HTTPS
+- Input sanitization prevents injection attacks
 
-    Go to the original repository and create a pull request from your fork.
+## 🤝 Contributing
 
-## License
+We welcome contributions! Please follow these steps:
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Commit your changes**
+   ```bash
+   git commit -m 'Add amazing feature'
+   ```
+4. **Push to the branch**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+5. **Open a Pull Request**
 
-## Contact
+### Development Guidelines
 
-For any questions or suggestions, feel free to contact:
+- Follow Swift style guidelines
+- Add comments for complex logic
+- Test on multiple iOS versions
+- Ensure accessibility compliance
 
-- **Matheus Abrahão**
-- **Email:** [your-email@example.com](mailto:your-email@example.com)
-- **GitHub:** [abrahao-dev](https://github.com/abrahao-dev)
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Developer
+
+**Matheus Abrahão**
+- GitHub: [@abrahao-dev](https://github.com/abrahao-dev)
+- LinkedIn: [Your LinkedIn]
+- Portfolio: [Your Portfolio]
+
+## 🙏 Acknowledgments
+
+- [Hugging Face](https://huggingface.co/) for providing the FLUX.1-dev model
+- [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the modern UI framework
+- [Apple Developer Documentation](https://developer.apple.com/documentation/) for comprehensive guides
+
+## 📈 Future Enhancements
+
+- [ ] User authentication and cloud sync
+- [ ] Multiple AI model support
+- [ ] Image editing and filters
+- [ ] Social sharing features
+- [ ] Offline mode with cached images
+- [ ] Advanced prompt templates
+- [ ] Batch image generation
+- [ ] Custom model fine-tuning
+
+---
+
+⭐ **Star this repository if you found it helpful!**
